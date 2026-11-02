@@ -38,6 +38,19 @@ int main(void) {
     assert(np_load_gamecoin(bak_path, &bak_coins, NULL));
     assert(bak_coins == 45u);
 
+    /* Fail-the-Fail negative assertions: bad magic, truncated file, NULL pointers */
+    assert(np_init(NULL, "build/test_sd") == false);
+    assert(np_set_play_coins(NULL, 100u) == false);
+    assert(np_archive_streetpass_box(&st, "", "Bad", 1u) == false);
+
+    const char *bad_gc = "build/test_sd/3ds/netpass/bad_gamecoin.dat";
+    FILE *bfp = fopen(bad_gc, "wb");
+    assert(bfp != NULL);
+    fwrite("BADMAGIC0123456789AB", 1, 20, bfp);
+    fclose(bfp);
+    assert(np_load_gamecoin(bad_gc, &loaded_coins, NULL) == false);
+    remove(bad_gc);
+
     printf("PASS: test_netpass all gamecoin.dat (0x4F00), .bak backup, and CECD box archive checks succeeded.\n");
     return 0;
 }
