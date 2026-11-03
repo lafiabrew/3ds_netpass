@@ -6,6 +6,10 @@
   <img src="docs/banner.png" width="256" height="128" alt="3ds_netpass 3DS banner" />
 </p>
 
+<p align="center">
+  <img src="docs/screenshot.png" width="360" alt="3ds_netpass dual-screen 3DS preview" />
+</p>
+
 > **Play Coins & StreetPass (`CTR-P-SPAS`, UniqueId `0x0D3E6`)** — Part of the [**lafiabrew**](https://github.com/orgs/lafiabrew/repositories) Nintendo 3DS Homebrew Suite (companion hub: [`lafiabrew/3ds_hub`](https://github.com/lafiabrew/3ds_hub)).
 
 Nintendo 3DS Play Coin maxer (`300/300` in `gamecoin.dat` with mandatory `.bak` backup), hardware pedometer step reader (`ptm:u`), and StreetPass `CECD` inbox/outbox vault archiver.
